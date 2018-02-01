@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const fs = require('fs')
 const del = require('del')
-
+const headPath = './src/MINM/server' + global.basepath
 function listDepDir (dir, callback) {
   var flist = fs.readdirSync(dir)
   for (var i = 0; i < flist.length; i++) {
@@ -19,33 +19,34 @@ function listDepDir (dir, callback) {
 // 创建index.js
 gulp.task('makeControllerIndex', function (cb) {
   console.log('makeControllerIndex-------------')
+  console.log(global.basepath)
   // controllerInde maker
   let controllerArr = ['var arr = []']
-  listDepDir('./src/controller/', (file) => {
+  listDepDir(headPath + '/src/controller/', (file) => {
     if (file.endsWith('.js') && file !== 'index.js') {
       controllerArr.push(`arr = arr.concat(require('./${file}'))`)
     }
   })
   controllerArr.push('module.exports = arr')
-  fs.writeFileSync('./src/controller/index.js', controllerArr.join('\n'))
+  fs.writeFileSync(headPath + '/src/controller/index.js', controllerArr.join('\n'))
 
   let mapperArrau = ['module.exports = {']
-  listDepDir('./src/mapper/', (file) => {
+  listDepDir(headPath + '/src/mapper/', (file) => {
     if (file.endsWith('.js') && file !== 'index.js') {
       mapperArrau.push(`  '${file.replace('.js', '')}': require('./${file}'), `)
     }
   })
   mapperArrau.push('}')
-  fs.writeFileSync('./src/mapper/index.js', mapperArrau.join('\n'))
+  fs.writeFileSync(headPath + '/src/mapper/index.js', mapperArrau.join('\n'))
 
   let ModuleArrau = ['module.exports = {']
-  listDepDir('./src/module/', (file) => {
+  listDepDir(headPath + '/src/module/', (file) => {
     if (file.endsWith('.js') && file !== 'index.js') {
       ModuleArrau.push(`  '${file.replace('.js', '')}': require('./${file}'), `)
     }
   })
   ModuleArrau.push('}')
-  fs.writeFileSync('./src/module/index.js', ModuleArrau.join('\n'))
+  fs.writeFileSync(headPath + '/src/module/index.js', ModuleArrau.join('\n'))
   cb()
 })
 gulp.task('clean', function (cb) {
