@@ -1,0 +1,11 @@
+version: "2"
+services:
+  nodejs:
+      build: .
+      ports:
+        - 10080:8000
+        - 10443:8000
+      volumes:
+        - ./project:/app:Z
+        - /app/node_modules
+      command: "npm start"
