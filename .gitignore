@@ -1,5 +1,5 @@
 /node_modules
 DevKeep.code-workspace
-/app/MINM/delete
-/app/MINM/html/dist
-/app/MINM/server/out
+/src/MINM/delete
+/src/MINM/html/dist
+/src/MINM/server/out
