@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:proxy": "nodemon server.js --watch ./"
+    "start:proxy": "nodemon ./src/Proxy/server.js --watch ./"
   },
   "author": "",
   "license": "ISC",
