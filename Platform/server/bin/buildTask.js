@@ -1,7 +1,7 @@
 const gulp = require('gulp')
 const fs = require('fs')
 const del = require('del')
-const headPath = './src/MINM/server' + global.basepath
+const headPath = '.'
 function listDepDir (dir, callback) {
   var flist = fs.readdirSync(dir)
   for (var i = 0; i < flist.length; i++) {

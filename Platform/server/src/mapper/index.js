@@ -1,3 +1,3 @@
 module.exports = {
-  'ApiMapper': require('./ApiMapper.js')
+  'ApiMapper': require('./ApiMapper.js'), 
 }

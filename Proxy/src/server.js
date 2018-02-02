@@ -6,7 +6,7 @@ var httpProxy = require('http-proxy')
 var url = require('url')
 // var fs = require('fs')
 
-var PROXY_PORT = 8000
+var PROXY_PORT = 8001
 var proxy, server
 
 // Create a proxy server with custom application logic
