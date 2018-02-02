@@ -1,5 +1,9 @@
-/node_modules
 DevKeep.code-workspace
-/src/MINM/delete
-/src/MINM/html/dist
-/src/MINM/server/out
+/Proxy/node_modules
+/Platform/server/node_modules
+/Platform/html/node_modules
+/Platform/delete
+/Platform/html/dist
+/Platform/html/tests
+/Platform/server/out
+/Platform/server/test
