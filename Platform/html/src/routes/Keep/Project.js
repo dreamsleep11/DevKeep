@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { List, Card, Row, Col, Radio, Input, Progress, Button, Icon, Dropdown, Menu, Avatar } from 'antd';
+import { Card, Row, Col, Input, Button } from 'antd';
 
 import PageHeaderLayout from '../../layouts/PageHeaderLayout';
 import styles from './Project.less';
