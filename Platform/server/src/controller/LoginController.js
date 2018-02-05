@@ -2,7 +2,9 @@
 module.exports = {
   init: function (app) {
     app.post('/api/login/account', function (req, res) {
-      console.log(req.session)// 打印session的值
+      // console.log(req.session)// 打印session的值
+      console.log(req.body.userName)
+      console.log(req.body.password)
       const { type } = req.body
       let user = {
         status: 'ok',

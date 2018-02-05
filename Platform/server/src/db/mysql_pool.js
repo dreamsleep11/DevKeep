@@ -1,6 +1,6 @@
 'use strict'
-var mysql = require('mysql')
-var pool = mysql.createPool({
+
+var pool = global.mysql.createPool({
   host: '192.168.0.110',
   user: 'root',
   password: '123456',
@@ -55,7 +55,7 @@ module.exports = {
     }
     let sql = 'INSERT INTO ' + module.table + ' (`' + Object.keys(module.col).join('`,`') + '`) VALUES (' + v.join(',') + ')'
     let options = Object.values(module.col)
-    return this.execSql(mysql.format(sql, options))
+    return this.execSql(global.mysql.format(sql, options))
   },
   doUpdate: function (module) {
 
