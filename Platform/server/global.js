@@ -2,8 +2,9 @@
 global.co = require('co')
 global.mysql = require('mysql')
 global.mysql_pool = require('./src/db/mysql_pool.js')
-global.module = require('./src/module')
+// global.module = require('./src/module')
 global.mapper = require('./src/mapper')
+global.service = require('./src/service')
 global.controller = require('./src/controller')
 global.getClientIp = function getClientIp (req) {
   var ipAddress

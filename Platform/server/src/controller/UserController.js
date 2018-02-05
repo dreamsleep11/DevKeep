@@ -3,6 +3,7 @@
 module.exports = {
   init: function (app) {
     app.get('/api/currentUser', (req, res) => {
+      console.info(req.session.user)
       global.co(function * () {
         let result = yield global.mapper.AccountMapper.queryAccount('admin')
         console.log('currentUser do ' + global.getClientIp(req))

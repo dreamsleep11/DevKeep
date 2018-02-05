@@ -30,36 +30,36 @@ module.exports = {
         }
       })
     })
-  },
-  exec: function (module, runType) {
-    if (runType === this.EXEC_INSERT) {
-      return this.doInster(module)
-    }
-    if (runType === this.EXEC_DELETE) {
-      return this.doDelete(module)
-    }
-    if (runType === this.EXEC_UPDATE) {
-      return this.doUpdate(module)
-    }
-    if (runType === this.EXEC_SELECT) {
-      return this.doSelect(module)
-    }
-    return new Promise(function (resolve, reject) {
-      resolve({ 'code': 1001, 'msg': '操作类型错误' })
-    })
-  },
-  doInster: function (module) {
-    let v = []
-    for (let i = 0; i < Object.keys(module.col).length; i++) {
-      v.push('?')
-    }
-    let sql = 'INSERT INTO ' + module.table + ' (`' + Object.keys(module.col).join('`,`') + '`) VALUES (' + v.join(',') + ')'
-    let options = Object.values(module.col)
-    return this.execSql(global.mysql.format(sql, options))
-  },
-  doUpdate: function (module) {
+  }
+  // exec: function (module, runType) {
+  //   if (runType === this.EXEC_INSERT) {
+  //     return this.doInster(module)
+  //   }
+  //   if (runType === this.EXEC_DELETE) {
+  //     return this.doDelete(module)
+  //   }
+  //   if (runType === this.EXEC_UPDATE) {
+  //     return this.doUpdate(module)
+  //   }
+  //   if (runType === this.EXEC_SELECT) {
+  //     return this.doSelect(module)
+  //   }
+  //   return new Promise(function (resolve, reject) {
+  //     resolve({ 'code': 1001, 'msg': '操作类型错误' })
+  //   })
+  // },
+  // doInster: function (module) {
+  //   let v = []
+  //   for (let i = 0; i < Object.keys(module.col).length; i++) {
+  //     v.push('?')
+  //   }
+  //   let sql = 'INSERT INTO ' + module.table + ' (`' + Object.keys(module.col).join('`,`') + '`) VALUES (' + v.join(',') + ')'
+  //   let options = Object.values(module.col)
+  //   return this.execSql(global.mysql.format(sql, options))
+  // },
+  // doUpdate: function (module) {
 
-  },
-  doDelete: function (module) { },
-  doSelect: function (module) { }
+  // },
+  // doDelete: function (module) { },
+  // doSelect: function (module) { }
 }

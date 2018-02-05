@@ -30,6 +30,14 @@ gulp.task('makeControllerIndex', function (cb) {
   controllerArr.push('module.exports = arr')
   fs.writeFileSync(headPath + '/src/controller/index.js', controllerArr.join('\n'))
 
+  let ServiceArrau = ['module.exports = {']
+  listDepDir(headPath + '/src/service/', (file) => {
+    if (file.endsWith('.js') && file !== 'index.js') {
+      ServiceArrau.push(`  '${file.replace('.js', '')}': require('./${file}'), `)
+    }
+  })
+  ServiceArrau.push('}')
+  fs.writeFileSync(headPath + '/src/service/index.js', ServiceArrau.join('\n'))
   let mapperArrau = ['module.exports = {']
   listDepDir(headPath + '/src/mapper/', (file) => {
     if (file.endsWith('.js') && file !== 'index.js') {
@@ -39,14 +47,14 @@ gulp.task('makeControllerIndex', function (cb) {
   mapperArrau.push('}')
   fs.writeFileSync(headPath + '/src/mapper/index.js', mapperArrau.join('\n'))
 
-  let ModuleArrau = ['module.exports = {']
-  listDepDir(headPath + '/src/module/', (file) => {
-    if (file.endsWith('.js') && file !== 'index.js') {
-      ModuleArrau.push(`  '${file.replace('.js', '')}': require('./${file}'), `)
-    }
-  })
-  ModuleArrau.push('}')
-  fs.writeFileSync(headPath + '/src/module/index.js', ModuleArrau.join('\n'))
+  // let ModuleArrau = ['module.exports = {']
+  // listDepDir(headPath + '/src/module/', (file) => {
+  //   if (file.endsWith('.js') && file !== 'index.js') {
+  //     ModuleArrau.push(`  '${file.replace('.js', '')}': require('./${file}'), `)
+  //   }
+  // })
+  // ModuleArrau.push('}')
+  // fs.writeFileSync(headPath + '/src/module/index.js', ModuleArrau.join('\n'))
   cb()
 })
 gulp.task('clean', function (cb) {
