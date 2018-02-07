@@ -11,7 +11,8 @@ module.exports = {
         if (dataAcc.results.length > 0) {
           // console.log(JSON.stringify(dataAcc))
           if (dataAcc.results[0].password === password) {
-            return serviceMsg.makeSuccess({ user_id: dataAcc.results[0].user_Id })
+            // console.log('dataAcc=====' + JSON.stringify(dataAcc))
+            return serviceMsg.makeSuccess({ userId: dataAcc.results[0]['user_id'] })
           } else {
             return serviceMsg.makeDefeated(null, '用户或密码错误')
           }
