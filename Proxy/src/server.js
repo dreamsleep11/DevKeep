@@ -4,7 +4,6 @@ var http = require('http')
 var https = require('https')
 var httpProxy = require('http-proxy')
 var url = require('url')
-// var fs = require('fs')
 
 var PROXY_PORT = 8001
 var proxy, server
